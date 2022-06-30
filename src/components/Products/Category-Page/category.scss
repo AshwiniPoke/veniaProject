@@ -1,0 +1,69 @@
+.heroTxt {
+    background-color: black;
+    height: 22rem;
+    width: 34rem;
+    // padding-top: 3vh;
+}
+
+.whiteTxt {
+    color: white;
+    padding-top: 20vh;
+}
+
+hr.heroHr {
+    width: 10%;
+    border: 1px solid blue;
+}
+
+.herobanner {
+    width: 55vw;
+    height: 21rem;
+    margin: 0.5rem 2.2rem 0rem 0rem;
+}
+
+.productImage {
+    height: 200px;
+    width: 50%;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.Filter {
+    text-align: left;
+    padding-left: 5rem;
+}
+
+.card {
+    cursor: pointer;
+}
+
+.prodTitle {
+    font-size: 14px;
+   // text-align: left;
+    margin-left: 1rem;
+    margin: 0%;
+}
+.resultcount{
+    margin:2% 4% 2% 4%;
+}
+.price{
+    margin:0%;
+    margin-left: 1rem;
+}
+
+
+
+@media only screen and ( max-width:768px) {
+    .heroBanner{
+        order:1;
+    }
+    .heroTxt{
+        order:2;
+    }
+    .productImage{
+        width:35vw;
+    }
+   .sortBy{
+    display:none;
+   }
+}

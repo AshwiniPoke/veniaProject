@@ -1,0 +1,14 @@
+@media only screen and ( max-width:768px) {
+     .linkUnderline{
+      display:none;
+    }
+    .nav-items{
+        display: inline-flex;
+    }
+    .sideImg{
+        display:none;
+    }
+    .editremove{
+        display: none;
+    }
+}

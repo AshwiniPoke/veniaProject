@@ -1,0 +1,17 @@
+@import '../Layout/Navbar/navbar';
+@import './var';
+@import './button';
+
+body{
+    background-color:white;
+    overflow-x: hidden;
+    text-align: center;
+    overflow-y: scroll;
+}
+.container{
+    padding: 0vh 3vw 0vh 3vw;
+    justify-content: center;
+}
+.aem-Grid{
+    width:auto !important;
+}

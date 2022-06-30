@@ -1,0 +1,42 @@
+.nav-items {
+  list-style: none;
+}
+.nav-items li {
+  display: inline;
+  padding: 1rem;
+}
+
+.linkUnderline {
+  text-decoration: none;
+}
+
+.bagImg {
+  cursor: pointer;
+}
+
+.align-right {
+  float: right;
+}
+
+@media screen and (max-width: 768px) {
+  .align-right {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+body {
+  background-color: white;
+  overflow-x: hidden;
+  text-align: center;
+  overflow-y: scroll;
+}
+
+.container {
+  padding: 0vh 3vw 0vh 3vw;
+  justify-content: center;
+}
+
+.aem-Grid {
+  width: auto !important;
+}/*# sourceMappingURL=main.css.map */

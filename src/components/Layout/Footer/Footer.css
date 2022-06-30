@@ -1,0 +1,22 @@
+.uo-list {
+  list-style: none;
+  font-size: 0.9rem;
+}
+.uo-list ul {
+  list-style: none;
+}
+
+.lower-footer span {
+  font-size: 0.9rem;
+}
+
+.footericons {
+  text-align: right;
+  padding-right: 6rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .footer-container {
+    text-align: left;
+  }
+}/*# sourceMappingURL=Footer.css.map */

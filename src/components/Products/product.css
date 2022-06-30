@@ -1,0 +1,63 @@
+.clrdiv {
+  height: 3vh;
+  width: 6vw;
+}
+
+.sortBy {
+  float: right;
+  height: 1.2rem;
+  border-radius: 6px;
+  width: 12rem;
+}
+
+.colorpallet {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.Blackclr {
+  background-color: black;
+}
+
+.greenclr {
+  background-color: #2D9D78;
+}
+
+.orangeclr {
+  background-color: #FDBA5E;
+}
+
+.blueclr {
+  background-color: #336DFF;
+}
+
+.redclr {
+  background-color: #E32F0F;
+}
+
+.darkblueclr {
+  background-color: #6408D3;
+}
+
+.pinkclr {
+  background-color: #F9009A;
+}
+
+.darkorangeclr {
+  background-color: #FF6F38;
+}
+
+.resultcount {
+  text-align: left;
+}
+
+.checkbox {
+  margin: 0%;
+}
+
+.Filter {
+  text-align: left;
+  padding-left: 1rem;
+}/*# sourceMappingURL=product.css.map */

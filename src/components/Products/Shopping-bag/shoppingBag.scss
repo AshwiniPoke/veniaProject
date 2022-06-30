@@ -1,0 +1,85 @@
+@import '../../SASS/main.css';
+@import '../../SASS/button';
+
+.leftalign{
+    text-align: left;
+}
+.rightalign{
+    float: right;
+}
+.discrightalign{
+    float: right;
+}
+.Cart{
+    text-align: left;
+    margin-left: 5rem;
+}
+.imageprops{
+    height:50%;
+    width:60%;
+}
+.discount{
+    margin: 2rem;
+}
+.border{
+    border: 1px solid gray;
+    margin: 0%;
+    padding: 1rem;
+}
+.quanBar{
+    margin-top:4rem;
+}
+.quantity-minus {
+    border: 1px solid grey;
+    border-radius: 50%;
+    margin: 2px;
+}
+.quantity-plus{
+    border: 1px solid grey;
+    border-radius: 50%;
+    margin: 2px;
+}
+.quantity{
+    width: 4rem;
+    border-radius: 5px;
+}
+.cartProdDetails{
+    margin:0%;
+}
+.checkoutBtn{
+    @include button;
+    background-color: #1F39FF;
+}
+.editremove{
+    padding-left: 1rem;
+}
+
+
+
+
+@media screen and (max-width:768px) {
+    .editremove{
+        display:none;
+    }
+    .imageprops{
+        height: 20vh;
+        width: 35vw;
+    }   
+    .Cart{
+        margin:0%;
+    }
+    .quanBar{
+        margin: 0% 0% 0% 40%;
+    }
+    .discount{
+        margin:4%;
+         padding: 2%;
+    }
+    .border{
+        padding:1rem 1rem 2rem 1rem;
+        width: 100vw;
+    }
+    .discrightalign{
+        float: left;
+    }
+}
