@@ -12,7 +12,7 @@ function App() {
     <div className="App aem-Grid aem-Grid--12">
     <Navbar />
     <Routes>
-      <Route exact path="/" element={<Main />}/>
+      <Route exact path="/veniaProject" element={<Main />}/>
       <Route exact path="/products/:id" element={<ProductDetail />}/>
       <Route exact path='/cart' element={<ShoppingBag />} />
     </Routes>
