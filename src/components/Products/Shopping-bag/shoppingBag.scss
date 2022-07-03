@@ -1,6 +1,8 @@
 @import '../../SASS/main.css';
 @import '../../SASS/button';
 
+// @media screen and (min-width:1024px) {
+
 .leftalign{
     text-align: left;
 }
@@ -39,6 +41,10 @@
     border-radius: 50%;
     margin: 2px;
 }
+.paypal{
+    margin-top: 0.5rem;
+    margin-left: 2rem;
+}
 .quantity{
     width: 4rem;
     border-radius: 5px;
@@ -53,11 +59,11 @@
 .editremove{
     padding-left: 1rem;
 }
+// }
 
 
 
-
-@media screen and (max-width:768px) {
+@media screen and (min-width:320px) and (max-width:767px) {
     .editremove{
         display:none;
     }
@@ -82,4 +88,63 @@
     .discrightalign{
         float: left;
     }
+    .rightalign{
+        float: right;
+    }
+    .pricing{
+        text-align: left;
+    }
+    .totalSummary{
+       padding:2rem;
+    }
+    .checkoutBtn{
+        @include button;
+        background-color: #1F39FF;
+    }
+    .quantity{
+        width: 4rem;
+        border-radius: 5px;
+    }
+    .paypal{
+        margin-left: 8vw;
+    }
+}
+
+
+@media screen and (min-width:768px) and (max-width:1023px) {
+   .imageprops{
+    height:10vh;
+   }
+   .border{
+    border: 1px solid gray;
+    margin: 0%;
+    padding: 1rem;
+}
+.discount{
+    margin:0%;
+}
+.rightalign{
+    float: right;
+}
+.pricing{
+    text-align: left;
+}
+.totalSummary{
+   padding:2rem;
+}
+.checkoutBtn{
+    @include button;
+    background-color: #1F39FF;
+    margin-left: 30vw;
+}
+.paypal{
+    margin-left: 30vw;
+}
+.quantity{
+    width: 4rem;
+    border-radius: 5px;
+}
+.Cart{
+    margin:1rem;
+}
 }

@@ -5,9 +5,7 @@
     width:5vw;
     margin: 1px;
 }
-// .ImgSidebar{
-//     display: block;
-// }
+
 .mainImg{
     height:70vh;
     width:28vw;
@@ -39,14 +37,28 @@ background-color: #1F39FF;
 .productDetailContainer{
     margin:0 5vw 0 5vw;
 }
+input{
+text-align: center;
+}
 
 
-@media screen and (max-width:768px) {
+@media screen and (min-width:320px) and (max-width:767px) {
     .sideImg{
         display:none;
     }
     .mainImg{
         width:85vw;
         height:70vh;
+    }
+}
+
+
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .sideImg{
+        display:none;
+    }
+    .mainImg{
+        width:40vw;
+        height:40vh;
     }
 }

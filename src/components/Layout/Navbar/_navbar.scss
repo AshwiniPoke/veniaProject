@@ -52,9 +52,61 @@
 .align-right{
     float: right;
 }
+// .menuicon{
+//     display:none;
+// }
 
-@media screen and (max-width:768px){
+@media screen and (min-width:320px) and (max-width:767px){
     .align-right{
         width:fit-content;
+        float: right !important;
     }
+    .nav-link{
+        padding: 0%;
+        margin: 0%;
+    }
+    .logo{
+        margin-left: 7rem;
+    }
+    .linkUnderline{
+        display:none;
+      }
+      .nav-items{
+          display: contents;
+      }
+      .nav-link{
+        display:contents;
+      }
+    .menuicon{
+       margin-top: 0.7rem;
+       height: 25px;
+       width: 25px;
+    }
+    .header{
+        height:3rem;
+        text-align: right;
+    }
+    li.nav-link{
+        padding:0%;
+    }
+}
+
+
+
+@media screen and (min-width:1024px){
+    .menuicon{
+        display: none;
+    }
+}
+
+
+@media screen and (min-width:768px) and ( max-width:1023px){
+    .menuicon{
+        display: none;
+    }
+    .linkUnderline{
+        display:none;
+    }
+
+
 }

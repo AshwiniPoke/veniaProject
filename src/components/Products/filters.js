@@ -1,5 +1,7 @@
 import React from 'react';
 import './product.css';
+import colorpallet from '../../images/color.png';
+
 
 export default function Filters() {
     return (
@@ -28,16 +30,7 @@ export default function Filters() {
                 <hr />
                 <div className='colorFilter'>
                     <p><b>Color</b></p>
-                    {/* <div className='colorpallet'>
-                    <span className='Blackclr clrdiv'>1</span>
-                    <span className='greenclr clrdiv'>1</span>
-                    <span className='orangeclr clrdiv'>1</span>
-                    <span className='greenclr clrdiv'>1</span>
-                    <span className='greenclr clrdiv'>1</span>
-                    <span className='greenclr clrdiv'>1</span>
-                    <span className='greenclr clrdiv'>1</span>
-                    <span className='greenclr clrdiv'>1</span>
-                </div> */}
+                   <img src={colorpallet} className="colorFilterImg"/>
                 </div>
                 <hr />
                 <div className='BrandFilter'>

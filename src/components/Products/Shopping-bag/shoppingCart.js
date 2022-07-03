@@ -2,6 +2,7 @@ import React from "react";
 import './shoppingBag.css';
 import { useSelector } from "react-redux/es/exports";
 import Select from 'react-select';
+import paypal from '../../../images/paypal.png';
 
 export default function ShoppingBag(props) {
     const cartData = useSelector((value) => {
@@ -22,14 +23,14 @@ export default function ShoppingBag(props) {
         <>
             <h1>Your Shopping Bag</h1>
             <div className="aem-Grid aem-Grid--12 Cart">
-                <div className="aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--12">
+                <div className="aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--12 aem-GridColumn--tablet--12">
                     {cartData.map((value) => {
                         console.log("cart values", value);
 
                         return (
                             <>
                                 <div className="aem-Grid aem-Grid--12">
-                                    <div className="aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--12">
+                                    <div className="aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--12 aem-GridColumn--tablet--6">
                                         <div className="aem-Grid aem-Grid--12 ">
 
                                             <div className="aem-GridColumn aem-GridColumn--default--6 aem-GridColumn aem-GridColumn--phone--5 ">
@@ -38,7 +39,7 @@ export default function ShoppingBag(props) {
                                                 <h4 className="cartProdDetails">{value.title}</h4>
                                                 <p className="cartProdDetails"><small>size : medium</small></p>
                                                 <p className="cartProdDetails"> <small>color : storm</small></p>
-                                               <p className="cartProdDetails"> <small>{value.price}</small></p>
+                                               <p className="cartProdDetails"> <small>$ {value.price}</small></p>
                                             </div>
 
 
@@ -46,7 +47,7 @@ export default function ShoppingBag(props) {
                                     </div>
                                     <div className="aem-GridColumn aem-GridColumn--default--2 aem-GridColumn--phone--12 quanBar">
                                         <button className="quantity-minus"  > <span > - </span> </button>
-                                        <input type="text" className='quantity' />
+                                        <input type="text" className='quantity' value="1" />
                                         <button className='quantity-plus'> <span> + </span> </button>
                                     </div>
                                     <div className="aem-GridColumn aem-GridColumn--default--3 editremove">
@@ -60,7 +61,7 @@ export default function ShoppingBag(props) {
                             </>
                         )
                     })}
-                    <div className="aem-Grid aem-Grid--12 aem-Grid aem-Grid--phone--12 discount">
+                    <div className="aem-Grid aem-Grid--12 aem-Grid aem-Grid--phone--12 aem-Grid--tablet--12 discount">
                     {/* <Select className='shipping'
                              defaultValue={pinOptions[0]}
                             placeholder="Estimate your Shipping"/> */}
@@ -69,9 +70,9 @@ export default function ShoppingBag(props) {
                         <p className="border">Apply Gift Card</p>
                     </div>
                 </div>
-                <div className="aem-GridColumn aem-GridColumn--default--4  aem-GridColumn--phone--12">
+                <div className="aem-GridColumn aem-GridColumn--default--4  aem-GridColumn--phone--12 aem-GridColumn--tablet--12 totalSummary">
                     <div className="aem-Grid aem-Grid--12 ">
-                        <div className="aem-GridColumn aem-GridColumn--default--12 border">
+                        <div className="aem-GridColumn aem-GridColumn--default--12 border pricing">
                             <p ><b>Pricing summary</b></p>
                             <p> Subtotal <span className="rightalign">$388</span></p>
                             <p>Coupon  <span className="rightalign">-$77.60</span></p>
@@ -80,6 +81,7 @@ export default function ShoppingBag(props) {
                             <p>Estimated shipping  <span className="rightalign">FREE</span></p>
                             <p><b>Estimated Total<span className="rightalign">$233.68</span></b></p>
                             <button className="checkoutBtn">Checkout</button>
+                            <img src={paypal} className="paypal"></img>
                         </div>
 
                     </div>

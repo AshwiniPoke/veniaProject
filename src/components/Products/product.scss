@@ -8,52 +8,13 @@
     border-radius: 6px;
     width:12rem;
 }
-.colorpallet{
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: space-between;
-    align-content: space-between;
-}
 
-.Blackclr{
-    background-color: black;
-}
-.greenclr{
-    background-color: #2D9D78;
-}
-.orangeclr{
-    background-color: #FDBA5E;
-}
-.blueclr{
-    background-color: #336DFF;
-}
-.redclr{
-    background-color: #E32F0F;
-}
-.darkblueclr{
-    background-color: #6408D3;
-}
-.pinkclr{
-    background-color: #F9009A;
-}
-.darkorangeclr{
-    background-color: #FF6F38;
-}
+
 
 .resultcount{
    text-align: left;
 }
-// select{
-//     :hover{
-//         border-color: grey;
-//     }
-//     :visited{
-//         border-color: grey;
-//     }
-//     :active{
-//         border-color: grey;
-//     }
-// }
+
 .checkbox {
     margin:0% ;
 }
@@ -61,3 +22,32 @@
     text-align: left;
     padding-left: 1rem;
 }
+ul.pagination{
+    list-style: none;
+    display: inline-flex;
+}
+
+@keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #383636; /* Black */
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+  }
+
+
+  @media only screen and ( min-width:768px) and (max-width:1023px) {
+
+    .colorFilterImg{
+        width:10rem;
+    }
+    }

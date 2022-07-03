@@ -37,7 +37,7 @@ hr.heroHr {
 }
 
 .prodTitle {
-  font-size: 14px;
+  font-size: 11px;
   margin-left: 1rem;
   margin: 0%;
 }
@@ -51,7 +51,7 @@ hr.heroHr {
   margin-left: 1rem;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 320px) and (max-width: 768px) {
   .heroBanner {
     order: 1;
   }
@@ -66,5 +66,27 @@ hr.heroHr {
 
   .sortBy {
     display: none;
+  }
+
+  .heroImg {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .herobanner {
+    width: 26rem;
+    height: 12rem;
+    margin: -3%;
+    padding: 0%;
+  }
+
+  .heroTxt {
+    height: 10rem;
+    width: 21rem;
+    margin-top: -10%;
+  }
+
+  .whiteTxt {
+    padding-top: 7vh;
   }
 }/*# sourceMappingURL=category.css.map */

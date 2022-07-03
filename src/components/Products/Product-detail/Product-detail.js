@@ -7,6 +7,7 @@ import icon1 from '../../../images/detailsIcon1.png';
 import icon2 from '../../../images/detailsIcon2.png';
 import icon3 from '../../../images/detailsIcon3.png';
 import icon4 from '../../../images/detailsIcon4.png';
+import color from '../../../images/color2.png';
 
 export default function ProductDetail() {
 
@@ -22,39 +23,41 @@ export default function ProductDetail() {
 
     const dispatch = useDispatch();
     const addProduct =(data) =>{
-        dispatch(handleAction.addItem({...data}))
+        dispatch(handleAction.addItem({...data}));
+        localStorage.setItem("cartProdData",JSON.stringify(data));
         console.log(data);
     }
 
-    function addToCart(cartProdData) {
-        console.log("added to cart", cartProdData);
-        localStorage.setItem("cartProdData",JSON.stringify(cartProdData));
-    }
+    // function addToCart(cartProdData) {
+    //     console.log("added to cart", cartProdData);
+    //     localStorage.setItem("cartProdData",JSON.stringify(cartProdData));
+    // }
 
     return (
         <div className='productDetailContainer'>
             <div className='container aem-Grid aem-Grid--12'>
-                <div className='aem-GridColumn aem-GridColumn--default--7 '>
-                    <div className='aem-Grid aem-Grid--12'>
-                        <div className='aem-GridColumn aem-GridColumn--default--2'>
+                <div className='aem-GridColumn aem-GridColumn--default--7 aem-GridColumn--tablet--6 aem-GridColumn--phone--12'>
+                    <div className='aem-Grid aem-Grid--12 '>
+                        <div className='aem-GridColumn aem-GridColumn--default--2 aem-GridColumn--tablet--hide aem-GridColumn--phone--hide'>
                             <img src={data.image} className="sideImg"></img>
                             <img src={data.image} className="sideImg"></img>
                             <img src={data.image} className="sideImg"></img>
                             <img src={data.image} className="sideImg"></img>
                             <img src={data.image} className="sideImg"></img>
                         </div>
-                        <div className='aem-GridColumn aem-GridColumn--default--10 aem-GridColumn--phone--12'>
+                        <div className='aem-GridColumn aem-GridColumn--default--10 aem-GridColumn--phone--12 aem-GridColumn--tablet--6'>
                             <img src={data.image} className="mainImg"></img>
                         </div>
                     </div>
                 </div>
-                <div className='aem-GridColumn aem-GridColumn--default--5 aem-GridColumn--phone--12 prodDetails '>
+                <div className='aem-GridColumn aem-GridColumn--default--5 aem-GridColumn--phone--12 aem-GridColumn--tablet--6 prodDetails '>
                     <p>Clothing/ Woman's/ Outerwear</p>
                     <h2>{data.title}</h2>
                     <p>${data.price}</p>
                     <p><small>{data.description}<span className='ReadMore'> Read more</span></small></p>
                     <hr />
                     <p><b>Color</b></p>
+                    <img src={color} />
                     <p><b>Size</b></p>
                     <button className='sizeOptions'><small>XS</small></button>
                     <button className='sizeOptions'><small>S</small></button>
@@ -63,8 +66,8 @@ export default function ProductDetail() {
                     <button className='sizeOptions'><small>XL</small></button>
                     <p><b>Quantity</b></p>
                    <div> <button className='quantity-minus'> - </button>
-                    <input type="text" className='quantity'/>
-                    <button className='quantity-plus'> + </button></div>
+                    <input type="text" className='quantity' value={1} />
+                    <button className='quantity-plus' > + </button></div>
                     <button className='AddToCartBtn' onClick={() => addProduct(data)}>Add To Cart</button>
                     <p><span><img src={require('../../../images/heart.svg').default} alt='icon' /> save</span>&nbsp;&nbsp;
                      <span><img src={require('../../../images/share.svg').default} alt='icon' /> share</span></p>
@@ -72,12 +75,12 @@ export default function ProductDetail() {
        </div>
             </div>
             <div className='aem-Grid aem-Grid--12 container'>
-                <div className='aem-GridColumn aem-GridColumn--default--7 aem-GridColumn--phone--12 prodDetails'>
+                <div className='aem-GridColumn aem-GridColumn--default--7 aem-GridColumn--phone--12 aem-GridColumn--tablet--12 prodDetails'>
                     <h2>{data.title}</h2>
                     <h4>Description</h4>
                     <p>{data.description}</p>
                 </div>
-                <div className='aem-GridColumn aem-GridColumn--default--5 aem-GridColumn--phone--12 prodDetails'>
+                <div className='aem-GridColumn aem-GridColumn--default--5 aem-GridColumn--phone--12 aem-GridColumn--tablet--12 prodDetails'>
                     <h4>Details</h4>
                     <div className='aem-Grid aem-Grid--12'>
                     <div className='aem-GridColumn aem-GridColumn--default--6 '>

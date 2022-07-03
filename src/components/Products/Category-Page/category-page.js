@@ -4,11 +4,12 @@ import './category.css';
 import { heroBanner } from '../../Layout/Data';
 import Products from '../products';
 import Filters from '../filters';
+// import Pagin from './pagination';
 
 export default function CategoryPage() {
    return (
         <>
-            <div className=" aem-Grid aem-Grid--12 container">
+            <div className=" aem-Grid aem-Grid--12 container heroImg">
                {heroBanner.map(element => {
                     return (
                         <>

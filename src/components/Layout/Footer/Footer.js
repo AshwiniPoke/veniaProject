@@ -53,7 +53,7 @@ export default function Footer() {
                     <span>© Company Name Address Ave, City Name, State ZIP</span>
                 </div>
                 <div className="aem-GridColumn aem-GridColumn--default--3 aem-GridColumn--tablet--6 aem-GridColumn--phone--12">
-                    <span><a href="#">Terms of Use</a> </span> &nbsp; <span><a href="#">Privacy Policy</a></span>
+                    <span>Terms of Use </span> &nbsp; <span>Privacy Policy</span>
                 </div>
 
             </div>
