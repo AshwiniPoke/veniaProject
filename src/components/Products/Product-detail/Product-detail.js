@@ -12,6 +12,24 @@ import color from '../../../images/color2.png';
 export default function ProductDetail() {
 
     const [data, setProduct] = useState([]);
+    let [num, setNum]= useState(0);
+    let incNum =()=>{
+      if(num<10)
+      {
+      setNum(Number(num)+1);
+      }
+    };
+    let decNum = () => {
+       if(num>0)
+       {
+        setNum(num - 1);
+       }
+    }
+   let handleChange = (e)=>{
+     setNum(e.target.value);
+    }
+  
+
     const { id } = useParams();
 
     useEffect(() => {
@@ -65,9 +83,10 @@ export default function ProductDetail() {
                     <button className='sizeOptions'><small>L</small></button>
                     <button className='sizeOptions'><small>XL</small></button>
                     <p><b>Quantity</b></p>
-                   <div> <button className='quantity-minus'> - </button>
-                    <input type="text" className='quantity' value={1} />
-                    <button className='quantity-plus' > + </button></div>
+                   <div> <button className='quantity-minus' onClick={decNum}> - </button>
+                    <input type="text" className='quantity' value={num} onChange={handleChange}/>
+                    <button className='quantity-plus' onClick={incNum}> + </button></div>
+
                     <button className='AddToCartBtn' onClick={() => addProduct(data)}>Add To Cart</button>
                     <p><span><img src={require('../../../images/heart.svg').default} alt='icon' /> save</span>&nbsp;&nbsp;
                      <span><img src={require('../../../images/share.svg').default} alt='icon' /> share</span></p>

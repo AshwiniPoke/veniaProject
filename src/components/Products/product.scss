@@ -25,6 +25,16 @@
 ul.pagination{
     list-style: none;
     display: inline-flex;
+     a{
+      color:black;
+     }
+    li{
+      padding:0.5rem;
+      text-decoration: none;     
+        :focus{
+          color:blue;
+        }
+    }
 }
 
 @keyframes spinner {

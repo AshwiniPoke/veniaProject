@@ -22,12 +22,13 @@ export default function Card({ data }) {
         <>
             {currentData.map((product) => {
                 let id = product.id;
-
+                let title = product.title;
+            let  splitTitle =   title?.split(' ').slice(0,3).join(' ')
                 return (
                     <>
                         <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn aem-GridColumn--phone--6 aem-GridColumn--tablet--6 card" onClick={() => navigate(`/products/${id}`)} >
                             <img className="productImage" src={product.image} alt="Product Image" />
-                            <p className='prodTitle'><b>{product.title}</b></p>
+                            <p className='prodTitle'>{splitTitle}</p>
                             <p className="price">${product.price}</p>
                             <img src={require('../../images/heart.svg').default} alt='icon' />
                             <br />

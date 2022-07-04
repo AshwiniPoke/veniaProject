@@ -1,25 +1,47 @@
-import React from "react";
+import React, {useState} from "react";
 import './shoppingBag.css';
 import { useSelector } from "react-redux/es/exports";
 import Select from 'react-select';
 import paypal from '../../../images/paypal.png';
 
+
+
 export default function ShoppingBag(props) {
+
+    let [num, setNum]= useState(1);
+    let incNum =()=>{
+      if(num<10  )
+      {
+      setNum(Number(num)+1);
+      }
+    };
+    let decNum = () => {
+       if(num>1)
+       {
+        setNum(num - 1);
+       }
+    }
+   let handleChange = (e)=>{
+     setNum(e.target.value);
+    }
+
     const cartData = useSelector((value) => {
         return value.cart.item;
     });
 
+    console.log("props data", props.data);
 
-    // const pinOptions = [
-    //     { value: 'Shipping to 91001', label: 'Shipping to 91001' },
-    // ];
-
+    function removeItem(id){
+//cartData.sp
+var index = cartData.indexOf(id)
+if (index !== -1) {
+    cartData.splice(index, 1);
+  this.setState({cartData: cartData});
+    }
+    }
     localStorage.setItem("cartItemsLocal",JSON.stringify(cartData));
 
-    // let prodData = localStorage.getItem('cartProdData');
-    // console.log("products in cart", prodData);
-
-    return (
+       return (
         <>
             <h1>Your Shopping Bag</h1>
             <div className="aem-Grid aem-Grid--12 Cart">
@@ -46,13 +68,13 @@ export default function ShoppingBag(props) {
                                         </div>
                                     </div>
                                     <div className="aem-GridColumn aem-GridColumn--default--2 aem-GridColumn--phone--12 quanBar">
-                                        <button className="quantity-minus"  > <span > - </span> </button>
-                                        <input type="text" className='quantity' value="1" />
-                                        <button className='quantity-plus'> <span> + </span> </button>
+                                        <button className="quantity-minus" onClick={decNum(value.id)} >  -</button>
+                                        <input type="text" className='quantity'value={num} onChange={handleChange} />
+                                        <button className='quantity-plus'  onClick={incNum}> +  </button>
                                     </div>
                                     <div className="aem-GridColumn aem-GridColumn--default--3 editremove">
                                         <p><img src={require("../../../images/edit-2.svg").default} ></img> Edit here</p>
-                                        <p><img src={require("../../../images/trash-2.svg").default}></img> Remove</p>
+                                        <p><img src={require("../../../images/trash-2.svg").default} onClick={removeItem(value.id)}></img> Remove </p>
                                         <p><img src={require("../../../images/heart.svg").default}></img> Save for later</p>
 
                                     </div>
@@ -92,13 +114,7 @@ export default function ShoppingBag(props) {
                 <h2>
                     Recently Viewed
                 </h2>
-                {/* {props.data.map((product) => {
-                    return(
-<><div>
-    <img src={product.image} />
-    </div> 
-</>
-                    )})} */}
+               
                
             </div>
         </>

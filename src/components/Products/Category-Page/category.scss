@@ -38,7 +38,7 @@ hr.heroHr {
 }
 
 .prodTitle {
-    font-size: 11px;
+    font-size: 16px;
    // text-align: left;
     margin-left: 1rem;
     margin: 0%;
@@ -48,7 +48,8 @@ hr.heroHr {
 }
 .price{
     margin:0%;
-    margin-left: 1rem;
+    text-align: left;
+    margin-left: 5rem;
 }
 
 
@@ -66,12 +67,16 @@ hr.heroHr {
    .sortBy{
     display:none;
    }
+   .resultcount{
+    text-align: center !important;
+   }
+
    .heroImg{
     display: flex;
     flex-direction: column;
    }
    .herobanner{
-    width: 26rem;
+    width: 100vw;
     height: 12rem;
     margin: -3%;
     padding: 0%;
@@ -87,3 +92,10 @@ hr.heroHr {
    }
 }
 
+
+@media only screen and (min-width:768px) {
+.phoneFilters{
+    display: none;
+}
+
+}

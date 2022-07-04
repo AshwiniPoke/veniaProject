@@ -1,4 +1,4 @@
-import React from "react";
+import React, {state} from "react";
 import '../../aem-grid.css';
 import '../../SASS/main.css';
 import { navbarList } from "../Data";
@@ -8,6 +8,7 @@ import { useSelector } from "react-redux/es/exports";
 import logo from '../../../images/logo.png';
 import menu from '../../../images/menuicon.png';
 
+
 export default function Navbar() {
 
     const cartCounter = useSelector((value) => {
@@ -15,16 +16,18 @@ export default function Navbar() {
     });
     const totalCartItem = cartCounter.length;
    
-
-    return (
+       return (
         <>
             <div className=" aem-Grid aem-Grid--12 container header">
                 {navbarList.map(navElement => {
                     return (
                         <>
+                       
                         <img src={menu} className="aem-GridColumn aem-GridColumn--phone--2 menuicon" />
+                     
+                       
                             {/* <span className="nav-items aem-GridColumn aem-GridColumn--default--2 logo"><span className="v-text-logo">V</span><span className="other-text-logo">ENIA</span></span> */}
-                            <a href = "/" className="nav-items aem-GridColumn aem-GridColumn--default--2 logo aem-GridColumn--tablet--1"><img src={logo}></img></a>
+                            <a href = "/veniaProject" className="nav-items aem-GridColumn aem-GridColumn--default--2 logo aem-GridColumn--tablet--1"><img src={logo}></img></a>
                             
                             <ul className="nav-items aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--hide aem-GridColumn--tablet--8">
                                 <li className="nav-link">{navElement.navlink1}</li>&nbsp;&nbsp;

@@ -44,12 +44,13 @@ export default function Product() {
 
 
 
-    const sortLowToHigh = () => {
-        const sortProduct = data?.sort((a, b) => (a.price > b.price ? 1 : -1));
-        setData(sortProduct);
-        console.log(sortProduct);
+    // const sortLowToHigh = () => {
+    //     const sortProduct = data?.sort((a, b) => (a.price > b.price ? 1 : -1));
+    //     setData(sortProduct);
+    //     console.log(sortProduct);
 
-    }
+    // }
+    data?.sort((a, b) => (a.price > b.price ? 1 : -1));
 
     // const renderCardData = (
     //     <Card data={data}></Card>
@@ -57,6 +58,12 @@ export default function Product() {
 
     return (
         <>
+        <div className='aem-Grid aem-Grid--12 phoneFilters'>
+        <img src={require('../../images/sliders.svg').default} alt='icon' /> <span>Filter results</span>&nbsp;&nbsp;&nbsp;
+        <img src={require('../../images/arrow-up.svg').default} alt='icon' /> 
+        <img src={require('../../images/arrow-down.svg').default} alt='icon' /> <span>Sort products</span>
+
+        </div>
             <div className='aem-Grid aem-Grid--12'>
                 <p className='resultcount'>{data.length} Results
                     <span>
@@ -65,9 +72,9 @@ export default function Product() {
                             onChange={sortLowToHigh}
                             options= /> */}
 
-                        <select className='sortBy' aria-label="Default select example" defaultValue={'DEFAULT'} onChange={sortLowToHigh}>
-                            <option value="DEFAULT">Sort by Price</option>
-                            <option value="1">Low to High</option>
+                        <select className='sortBy' aria-label="Default select example" defaultValue={'DEFAULT'} onChange={()=>{ data?.sort((a, b) => (a.price > b.price ? 1 : -1));}}>
+                            <option value="1">Sort by Price</option>
+                            <option value="DEFAULT">Low to High</option>
 
                         </select>
 
