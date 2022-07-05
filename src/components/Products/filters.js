@@ -6,8 +6,8 @@ import colorpallet from '../../images/color.png';
 export default function Filters() {
     return (
         <>
-            <p>Clothing/ Woman's/ Outerwear</p>
             <div className='Filter'>
+            <p className='filtertext'>Clothing/ Woman's/ Outerwear</p>
                 <h3>Filters</h3>
                 <hr />
                 <div className='sizeFilter'>

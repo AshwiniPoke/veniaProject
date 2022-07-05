@@ -71,4 +71,26 @@ ul.pagination li :focus {
   .colorFilterImg {
     width: 10rem;
   }
+
+  .filtertext {
+    font-size: small;
+  }
+
+  .Filter {
+    padding-left: 3rem !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .Filter {
+    margin-top: 3rem;
+    width: 60vw;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    padding-left: 1rem !important;
+  }
+
+  .colorFilterImg {
+    width: 30vw;
+  }
 }/*# sourceMappingURL=product.css.map */

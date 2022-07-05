@@ -32,7 +32,7 @@
   }
 
   .logo {
-    margin-left: 7rem;
+    margin-left: 6.5rem;
   }
 
   .linkUnderline {
@@ -49,8 +49,8 @@
 
   .menuicon {
     margin-top: 0.7rem;
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 20px;
   }
 
   .header {
@@ -74,6 +74,14 @@
 
   .linkUnderline {
     display: none;
+  }
+
+  .nav-items {
+    list-style: none;
+  }
+  .nav-items li {
+    display: inline;
+    padding: 0.6rem;
   }
 }
 body {
