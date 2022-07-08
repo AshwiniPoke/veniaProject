@@ -1,5 +1,7 @@
 @import '../../SASS/main.css';
 @import '../../SASS/button';
+@import '../SASS/var';
+
 
 // @media screen and (min-width:1024px) {
 
@@ -9,6 +11,19 @@
 .rightalign{
     float: right;
 }
+.carousalImg {
+    height: 28vh;
+    width: 13vw;
+    border: 1px solid grey;
+    padding: 0.5rem;
+  }
+  
+  .carousalCard {
+    width: 27vw;
+    height: 42vh;
+    padding: 0%;
+  }
+
 .discrightalign{
     float: right;
 }
@@ -54,11 +69,12 @@
 }
 .checkoutBtn{
     @include button;
-    background-color: #1F39FF;
+    background-color: $btn-bgcolor;
 }
 .editremove{
     padding-left: 1rem;
 }
+
 // }
 
 
@@ -85,9 +101,11 @@
         padding:1rem 1rem 2rem 1rem;
         width: 100vw;
     }
-    .discrightalign{
-        float: left;
-    }
+    .discrightalign {
+        display: block;
+        float: none;
+      }
+    
     .rightalign{
         float: right;
     }
@@ -99,7 +117,7 @@
     }
     .checkoutBtn{
         @include button;
-        background-color: #1F39FF;
+        background-color: $btn-bgcolor;
     }
     .quantity{
         width: 4rem;
@@ -134,7 +152,7 @@
 }
 .checkoutBtn{
     @include button;
-    background-color: #1F39FF;
+    background-color: $btn-bgcolor;
     margin-left: 30vw;
 }
 .paypal{

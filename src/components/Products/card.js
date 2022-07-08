@@ -5,6 +5,7 @@ import Pagination from "react-js-pagination";
 import { useNavigate, Link } from 'react-router-dom';
 
 export default function Card({ data }) {
+    console.log("data",data);
     let navigate = useNavigate();
 
     const [page, setPage] = useState(1);
@@ -30,7 +31,7 @@ export default function Card({ data }) {
                             <img className="productImage" src={product.image} alt="Product Image" />
                             <p className='prodTitle'>{splitTitle}</p>
                             <p className="price">${product.price}</p>
-                            <img src={require('../../images/heart.svg').default} alt='icon' />
+                            <img className='heartIcon' src={require('../../images/heart.svg').default} alt='icon' />
                             <br />
                         </div>
                     </>
