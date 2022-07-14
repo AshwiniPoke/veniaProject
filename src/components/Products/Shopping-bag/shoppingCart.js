@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import './shoppingBag.css';
 import { useSelector, useDispatch } from "react-redux/es/exports";
-import Select from 'react-select';
 import paypal from '../../../images/paypal.png';
 import Carousel from "react-multi-carousel";
-import IncDecCount from '../IncDecProdCount';
 import "react-multi-carousel/lib/styles.css";
 import { handleAction } from "../../../Redux/cartSlice";
 
@@ -31,6 +29,23 @@ export default function ShoppingBag() {
         return value.cart.item;
     });
 
+    const subTotal = useSelector((state) => state.cart.cartTotalAmount);
+
+    useEffect(() => {
+        dispatch(handleAction.getTotals())
+
+    }, [subTotal, dispatch])
+
+
+
+    const handleDecreaseItem = (value) => {
+        dispatch(handleAction.decreaseCartItem(value))
+    }
+
+    const handleIncreaseItem = (value) => {
+        dispatch(handleAction.increaseCartItem(value))
+    }
+
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
             .then((res) => res.json())
@@ -44,7 +59,7 @@ export default function ShoppingBag() {
             <div className="aem-Grid aem-Grid--12 Cart">
                 <div className="aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--12 aem-GridColumn--tablet--12">
                     {cartData.map((value) => {
-                         console.log("cart values", value);
+                        console.log("cart values", value);
 
                         return (
                             <>
@@ -65,7 +80,13 @@ export default function ShoppingBag() {
                                         </div>
                                     </div>
                                     <div className="aem-GridColumn aem-GridColumn--default--2 aem-GridColumn--phone--12">
-                                        <IncDecCount />
+                                        {/* <IncDecCount /> */}
+                                        <div className='aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--12 quanBar'>
+                                            <button className="quantity-minus" aria-label="DecQuantity" onClick={() => handleDecreaseItem(value)}>-</button>
+                                            <input type="text" className='quantity' value={value.cartQuantity} aria-label="quantity" />
+                                            {/* <div >{value.cartQuantity}</div> */}
+                                            <button className='quantity-plus' aria-label='IncQuantity' onClick={() => handleIncreaseItem(value)}>+</button>
+                                        </div>
                                     </div>
                                     <div className="aem-GridColumn aem-GridColumn--default--3 editremove">
                                         <p><img src={require("../../../images/edit-2.svg").default} alt="editProd"></img> Edit here</p>
@@ -79,12 +100,12 @@ export default function ShoppingBag() {
                         )
                     })}
                     <div className="aem-Grid aem-Grid--12 aem-Grid aem-Grid--phone--12 aem-Grid--tablet--12 discount">
-                       
+
                         <p className="border">Estimate your Shipping<span className="discrightalign">Shipping to 91001 &nbsp;
-                        <img className='downArrow' src={require('../../../images/down-arrow.svg').default} alt='icon' />
-                         </span> </p>
+                            <img className='downArrow' src={require('../../../images/down-arrow.svg').default} alt='icon' />
+                        </span> </p>
                         <p className="border">Enter a Coupon Code<span className="discrightalign">20% discount applied &nbsp;
-                        <img className='downArrow' src={require('../../../images/down-arrow.svg').default} alt='icon' />
+                            <img className='downArrow' src={require('../../../images/down-arrow.svg').default} alt='icon' />
                         </span></p>
                         <p className="border">Apply Gift Card</p>
                     </div>
@@ -93,12 +114,12 @@ export default function ShoppingBag() {
                     <div className="aem-Grid aem-Grid--12 ">
                         <div className="aem-GridColumn aem-GridColumn--default--12 border pricing">
                             <p ><b>Pricing summary</b></p>
-                            <p> Subtotal <span className="rightalign">$</span></p>
+                            <p> Subtotal <span className="rightalign">${subTotal}</span></p>
                             <p>Coupon  <span className="rightalign">-$77.60</span></p>
                             <p>Gift Card  <span className="rightalign">-$100.00</span></p>
                             <p>Estimated Tax  <span className="rightalign">$23.28</span></p>
                             <p>Estimated shipping  <span className="rightalign">FREE</span></p>
-                            <p><b>Estimated Total<span className="rightalign">$233.68</span></b></p>
+                            <p><b>Estimated Total<span className="rightalign">${subTotal}</span></b></p>
                             <button className="checkoutBtn" aria-label="checkOut">Checkout</button>
                             <img src={paypal} className="paypal" alt="paypal"></img>
                         </div>
@@ -132,15 +153,15 @@ export default function ShoppingBag() {
                     {data.map((product) => {
                         // console.log("carousal", product);
                         let title = product.title;
-                        let  splitTitle =   title?.split(' ').slice(0,3).join(' ')
+                        let splitTitle = title?.split(' ').slice(0, 3).join(' ')
                         return (
                             <>
-                               <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn aem-GridColumn--phone--hide carousalCard" >
-                            <img  src={product.image} className="carousalImg" alt="Product Image" />
-                                {/* <div className="aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--7"> */}
+                                <div className="aem-GridColumn aem-GridColumn--default--4 aem-GridColumn aem-GridColumn--phone--hide carousalCard" >
+                                    <img src={product.image} className="carousalImg" alt="Product Image" />
+                                    {/* <div className="aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--7"> */}
                                     <h4 className="cartProdDetails">{splitTitle}</h4>
                                     <p className="cartProdDetails">${product.price}</p>
-                                {/* </div> */}
+                                    {/* </div> */}
                                 </div>
                             </>)
                     })

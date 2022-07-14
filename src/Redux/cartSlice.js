@@ -32,7 +32,7 @@ export const cartSlice = createSlice({
       localStorage.setItem("items", JSON.stringify(state.item));
     return state;
   },
-    decreaseCart(state, action) {
+    decreaseCartItem(state, action) {
       const itemIndex = state.item.findIndex(
         (cartItem) => cartItem.id === action.payload.id
       );
@@ -50,7 +50,7 @@ export const cartSlice = createSlice({
 
       localStorage.setItem("items", JSON.stringify(state.item));
     },
-    increaseCart(state, action) {
+    increaseCartItem(state, action) {
       const itemIndex = state.item.findIndex(
         (cartItem) => cartItem.id === action.payload.id
       );
