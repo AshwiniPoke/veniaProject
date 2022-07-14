@@ -25,11 +25,18 @@
   margin: 0 4px 0 4px;
   border-radius: 4px;
 }
+.saveShareBtn{
+  margin-left: 7vw;
+}
 
 .QuantityCircle {
   border: 1px solid grey;
   border-radius: 50%;
   padding: 0 3px 0 3px;
+}
+.SingleProdTitle{
+  font-size:36px;
+  margin:0%;
 }
 
 .AddToCartBtn {
@@ -72,7 +79,13 @@ input {
 
   .mainImg {
     width: 85vw;
-    height: 70vh;
+    height: 50vh;
+  }
+  .saveShareBtn{
+    margin-left: 24vw;
+  }
+  .SingleProdTitle {
+    font-size: 32px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {

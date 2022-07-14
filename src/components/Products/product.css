@@ -58,10 +58,8 @@ ul.pagination li :focus {
 .loading-spinner {
   width: 50px;
   height: 50px;
-  border: 10px solid #f3f3f3;
-  /* Light grey */
-  border-top: 10px solid #383636;
-  /* Black */
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid #383636; /* Black */
   border-radius: 50%;
   -webkit-animation: spinner 1.5s linear infinite;
           animation: spinner 1.5s linear infinite;
@@ -71,11 +69,9 @@ ul.pagination li :focus {
   .colorFilterImg {
     width: 10rem;
   }
-
   .filtertext {
     font-size: small;
   }
-
   .Filter {
     padding-left: 3rem !important;
   }
@@ -89,7 +85,6 @@ ul.pagination li :focus {
     z-index: 1;
     padding-left: 1rem !important;
   }
-
   .colorFilterImg {
     width: 30vw;
   }

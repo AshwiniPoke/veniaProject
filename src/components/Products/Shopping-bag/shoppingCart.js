@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import './shoppingBag.css';
-import { useSelector } from "react-redux/es/exports";
+import { useSelector, useDispatch } from "react-redux/es/exports";
 import Select from 'react-select';
 import paypal from '../../../images/paypal.png';
 import Carousel from "react-multi-carousel";
+import IncDecCount from '../IncDecProdCount';
 import "react-multi-carousel/lib/styles.css";
+import { handleAction } from "../../../Redux/cartSlice";
+
 
 const responsive = {
     desktop: {
@@ -22,21 +25,7 @@ const responsive = {
 
 export default function ShoppingBag() {
     const [data, setData] = useState([]);
-
-    let [num, setNum] = useState(1);
-    let incNum = () => {
-        if (num < 10) {
-            setNum(Number(num) + 1);
-        }
-    };
-    let decNum = () => {
-        if (num > 1) {
-            setNum(num - 1);
-        }
-    }
-    let handleChange = (e) => {
-        setNum(e.target.value);
-    }
+    const dispatch = useDispatch();
 
     const cartData = useSelector((value) => {
         return value.cart.item;
@@ -49,23 +38,13 @@ export default function ShoppingBag() {
     }, []
     );
 
-
-    function removeItem(id) {
-        var index = cartData.indexOf(id)
-        if (index !== -1) {
-            cartData.splice(index, 1);
-            this.setState({ cartData: cartData });
-        }
-    }
-    localStorage.setItem("cartItemsLocal", JSON.stringify(cartData));
-
     return (
         <>
             <h1>Your Shopping Bag</h1>
             <div className="aem-Grid aem-Grid--12 Cart">
                 <div className="aem-GridColumn aem-GridColumn--default--8 aem-GridColumn--phone--12 aem-GridColumn--tablet--12">
                     {cartData.map((value) => {
-                        // console.log("cart values", value);
+                         console.log("cart values", value);
 
                         return (
                             <>
@@ -74,7 +53,7 @@ export default function ShoppingBag() {
                                         <div className="aem-Grid aem-Grid--12 ">
 
                                             <div className="aem-GridColumn aem-GridColumn--default--6 aem-GridColumn aem-GridColumn--phone--5 ">
-                                                <img src={value.image} className="imageprops"></img></div>
+                                                <img src={value.image} className="imageprops" alt="prodImages"></img></div>
                                             <div className="aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--7">
                                                 <h4 className="cartProdDetails">{value.title}</h4>
                                                 <p className="cartProdDetails"><small>size : medium</small></p>
@@ -85,15 +64,13 @@ export default function ShoppingBag() {
 
                                         </div>
                                     </div>
-                                    <div className="aem-GridColumn aem-GridColumn--default--2 aem-GridColumn--phone--12 quanBar">
-                                        <button className="quantity-minus" onClick={decNum(value.id)} >  -</button>
-                                        <input type="text" className='quantity' value={num} onChange={handleChange} />
-                                        <button className='quantity-plus' onClick={incNum}> +  </button>
+                                    <div className="aem-GridColumn aem-GridColumn--default--2 aem-GridColumn--phone--12">
+                                        <IncDecCount />
                                     </div>
                                     <div className="aem-GridColumn aem-GridColumn--default--3 editremove">
-                                        <p><img src={require("../../../images/edit-2.svg").default} ></img> Edit here</p>
-                                        <p><img src={require("../../../images/trash-2.svg").default} onClick={removeItem(value.id)}></img> Remove </p>
-                                        <p><img src={require("../../../images/heart.svg").default}></img> Save for later</p>
+                                        <p><img src={require("../../../images/edit-2.svg").default} alt="editProd"></img> Edit here</p>
+                                        <p><img src={require("../../../images/trash-2.svg").default} alt="removeProd" onClick={() => { return dispatch(handleAction.removeFromCart(value.id)) }}></img> Remove </p>
+                                        <p><img src={require("../../../images/heart.svg").default} alt="Prod"></img> Save for later</p>
 
                                     </div>
 
@@ -102,13 +79,11 @@ export default function ShoppingBag() {
                         )
                     })}
                     <div className="aem-Grid aem-Grid--12 aem-Grid aem-Grid--phone--12 aem-Grid--tablet--12 discount">
-                        {/* <Select className='shipping'
-                             defaultValue={pinOptions[0]}
-                            placeholder="Estimate your Shipping"/> */}
-                        <p className="border">Estimate your Shipping<span className="discrightalign">Shipping to 91001 
+                       
+                        <p className="border">Estimate your Shipping<span className="discrightalign">Shipping to 91001 &nbsp;
                         <img className='downArrow' src={require('../../../images/down-arrow.svg').default} alt='icon' />
                          </span> </p>
-                        <p className="border">Enter a Coupon Code<span className="discrightalign">20% discount applied 
+                        <p className="border">Enter a Coupon Code<span className="discrightalign">20% discount applied &nbsp;
                         <img className='downArrow' src={require('../../../images/down-arrow.svg').default} alt='icon' />
                         </span></p>
                         <p className="border">Apply Gift Card</p>
@@ -118,21 +93,21 @@ export default function ShoppingBag() {
                     <div className="aem-Grid aem-Grid--12 ">
                         <div className="aem-GridColumn aem-GridColumn--default--12 border pricing">
                             <p ><b>Pricing summary</b></p>
-                            <p> Subtotal <span className="rightalign">$388</span></p>
+                            <p> Subtotal <span className="rightalign">$</span></p>
                             <p>Coupon  <span className="rightalign">-$77.60</span></p>
                             <p>Gift Card  <span className="rightalign">-$100.00</span></p>
                             <p>Estimated Tax  <span className="rightalign">$23.28</span></p>
                             <p>Estimated shipping  <span className="rightalign">FREE</span></p>
                             <p><b>Estimated Total<span className="rightalign">$233.68</span></b></p>
-                            <button className="checkoutBtn">Checkout</button>
-                            <img src={paypal} className="paypal"></img>
+                            <button className="checkoutBtn" aria-label="checkOut">Checkout</button>
+                            <img src={paypal} className="paypal" alt="paypal"></img>
                         </div>
 
                     </div>
                 </div>
             </div>
 
-            <div className="aem-Grid aem-Grid--12 aem-GridColumn aem-GridColumn--phone--hide CarousalDiv">
+            <div className="aem-Grid aem-Grid--12 aem-GridColumn aem-GridColumn--phone--hide aem-GridColumn--tablet--hide CarousalDiv">
                 <h2>
                     Recently Viewed
                 </h2>

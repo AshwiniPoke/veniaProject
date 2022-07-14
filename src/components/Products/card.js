@@ -5,7 +5,7 @@ import Pagination from "react-js-pagination";
 import { useNavigate, Link } from 'react-router-dom';
 
 export default function Card({ data }) {
-    console.log("data",data);
+     console.log("data",data);
     let navigate = useNavigate();
 
     const [page, setPage] = useState(1);
@@ -17,7 +17,6 @@ export default function Card({ data }) {
     const currentData= data.slice(firstcardIndex,lastcardIndex);
 
     const paginate = pageNumber => setPage(pageNumber);
-    console.log(data.length);
 
     return (
         <>

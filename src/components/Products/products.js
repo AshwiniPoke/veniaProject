@@ -3,71 +3,69 @@ import Card from './card';
 import './Category-Page/category.css';
 import './product.css';
 import '../../components/aem-grid.css';
-// import LoadingSpinner from "./Loader";
-import Select from 'react-select';
-
-
-// const options = [
-//     { value: 'byPrice', label: 'Sort By Price' },
-//     { value: 'byLatest', label: 'Sort By Latest' },
-// ];
 
 export default function Product() {
     const [data, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [sort, setSort] = useState();
+    
+    const sortLowToHigh = (filter) => {
+        console.log("onfilter", sort);
+        if (filter) {
+            const result = data.sort((a, b) => a.price - b.price);
+            return setSort(result);
+        }
+        else {
+            const result = data;
+            return setSort(result);
+        }
+    }
 
+    const getProdData = () => {
+        setLoading(true);
+        fetch("https://fakestoreapi.com/products")
+          .then(res => {
+            return res.json()
+          })
+          .then(data => {
+            setData(data);
+            setLoading(false);
+    
+          })
+        console.log(data)
+      }
 
     useEffect(() => {
-        setIsLoading(true);
-        fetch("https://fakestoreapi.com/products")
-            .then((res) => res.json())
-            .then((data) => setData(data));
-    }, []
-    );
-   
-    // setIsLoading(false);
-
-    // const sortLowToHigh = () => {
-    //     const sortProduct = data?.sort((a, b) => (a.price > b.price ? 1 : -1));
-    //     setData(sortProduct);
-    //     console.log(sortProduct);
-
-    // }
-    data?.sort((a, b) => (a.price > b.price ? 1 : -1));
-
-    // const renderCardData = (
-    //     <Card data={data}></Card>
-    // )
+        getProdData()
+    },[]);
 
     return (
         <>
-        <div className='aem-Grid aem-Grid--12 phoneFilters'>
-        <img src={require('../../images/sliders.svg').default} alt='icon' /> <span>Filter results</span>&nbsp;&nbsp;&nbsp;
-        <img src={require('../../images/arrow-up.svg').default} alt='icon' /> 
-        <img src={require('../../images/arrow-down.svg').default} alt='icon' /> <span>Sort products</span>
+{
+        loading ? <h1 style={{ fontSize: "62px" }}>Loading...</h1> :
+        <>
+            <div className='aem-Grid aem-Grid--12 phoneFilters'>
+                <img src={require('../../images/sliders.svg').default} alt='icon' /> <span>Filter results</span>&nbsp;&nbsp;&nbsp;
+                <img src={require('../../images/arrow-up.svg').default} alt='icon' />
+                <img src={require('../../images/arrow-down.svg').default} alt='icon' /> <span>Sort products</span>
 
-        </div>
+            </div>
             <div className='aem-Grid aem-Grid--12'>
                 <p className='resultcount'>{data.length} Results
                     <span>
-                        {/* <Select className='sortBy'
-                            defaultValue={options[0]}
-                            onChange={sortLowToHigh}
-                            options= /> */}
-
-                        <select className='sortBy' aria-label="Default select example" defaultValue={'DEFAULT'} onChange={()=>{ data?.sort((a, b) => (a.price > b.price ? 1 : -1));}}>
-                            <option value="1">Sort by Price</option>
-                            <option value="DEFAULT">Low to High</option>
-
+                       <select className='sortBy' aria-label="Default select example" defaultValue={'DEFAULT'} onChange={sortLowToHigh}>
+                            <option value="DEFAULT">Sort by Latest</option>
+                            <option value="lowest">Low to High</option>
                         </select>
-
                     </span></p>
             </div>
+       
+        
             <div className='aem-Grid aem-Grid--12'>
-                {/* {isLoading ? <LoadingSpinner /> : {getUserData}} */}
-                <Card data={data}></Card>
+            <Card data={data} loading={loading}></Card>
             </div>
+                </>}
+           
         </>
 
     )

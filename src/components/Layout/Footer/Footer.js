@@ -7,7 +7,7 @@ import logo from '../../../images/logo.png';
 
 export default function Footer() {
     return (
-        <>
+        <footer>
             <hr />
             <div className=" aem-Grid aem-Grid--12 container footer-container">
 
@@ -59,7 +59,7 @@ export default function Footer() {
             </div>
 
             <br />
-        </>
+        </footer>
     )
 
     // })}

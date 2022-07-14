@@ -29,18 +29,18 @@ export default function Navbar() {
 
     return (
         <>
-            <div className=" aem-Grid aem-Grid--12 container header">
+            <nav className=" aem-Grid aem-Grid--12 container header" aria-label="navbar">
                 {navbarList.map(navElement => {
                     return (
                         <>
 
-                            <img src={menu} className="aem-GridColumn aem-GridColumn--phone--2 menuicon" onClick={showFilter} />
+                            <img src={menu} alt="menu" className="aem-GridColumn aem-GridColumn--phone--2 menuicon" onClick={showFilter} />
                         {
                             isShown && <Filter /> 
                         }
 
                             {/* <span className="nav-items aem-GridColumn aem-GridColumn--default--2 logo"><span className="v-text-logo">V</span><span className="other-text-logo">ENIA</span></span> */}
-                            <a href="/veniaProject" className="nav-items aem-GridColumn aem-GridColumn--default--2 logo aem-GridColumn--tablet--1"><img src={logo}></img></a>
+                            <a href="/veniaProject" className="nav-items aem-GridColumn aem-GridColumn--default--2 logo aem-GridColumn--tablet--1"><img src={logo} alt="logo"></img></a>
 
                             <ul className="nav-items aem-GridColumn aem-GridColumn--default--6 aem-GridColumn--phone--hide aem-GridColumn--tablet--8">
                                 <li className="nav-link">{navElement.navlink1}</li>&nbsp;&nbsp;
@@ -60,7 +60,7 @@ export default function Navbar() {
                 })
                 }
 
-            </div>
+            </nav>
             <hr />
 
         </>

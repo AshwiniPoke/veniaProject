@@ -12,7 +12,7 @@ import color from '../../../images/color2.png';
 export default function ProductDetail() {
 
     const [data, setProduct] = useState([]);
-    let [num, setNum]= useState(0);
+    let [num, setNum]= useState(1);
     let incNum =()=>{
       if(num<10)
       {
@@ -45,50 +45,47 @@ export default function ProductDetail() {
         localStorage.setItem("cartProdData",JSON.stringify(data));
         console.log(data);
     }
-
-    // function addToCart(cartProdData) {
-    //     console.log("added to cart", cartProdData);
-    //     localStorage.setItem("cartProdData",JSON.stringify(cartProdData));
-    // }
-
+    let title = data.title;
+    let  splitTitle =   title?.split(' ').slice(0,3).join(' ')
+    
     return (
         <div className='productDetailContainer'>
             <div className='container aem-Grid aem-Grid--12'>
                 <div className='aem-GridColumn aem-GridColumn--default--7 aem-GridColumn--tablet--6 aem-GridColumn--phone--12'>
                     <div className='aem-Grid aem-Grid--12 '>
                         <div className='aem-GridColumn aem-GridColumn--default--2 aem-GridColumn--tablet--hide aem-GridColumn--phone--hide'>
-                            <img src={data.image} className="sideImg"></img>
-                            <img src={data.image} className="sideImg"></img>
-                            <img src={data.image} className="sideImg"></img>
-                            <img src={data.image} className="sideImg"></img>
-                            <img src={data.image} className="sideImg"></img>
+                            <img src={data.image} className="sideImg" alt="side"></img>
+                            <img src={data.image} className="sideImg" alt="side"></img>
+                            <img src={data.image} className="sideImg" alt="side"></img>
+                            <img src={data.image} className="sideImg" alt="side"></img>
+                            <img src={data.image} className="sideImg" alt="side"></img>
                         </div>
                         <div className='aem-GridColumn aem-GridColumn--default--10 aem-GridColumn--phone--12 aem-GridColumn--tablet--6'>
-                            <img src={data.image} className="mainImg"></img>
+                            <img src={data.image} className="mainImg" alt="main"></img>
                         </div>
                     </div>
                 </div>
                 <div className='aem-GridColumn aem-GridColumn--default--5 aem-GridColumn--phone--12 aem-GridColumn--tablet--6 prodDetails '>
                     <p>Clothing/ Woman's/ Outerwear</p>
-                    <h2>{data.title}</h2>
+                    <p className='SingleProdTitle'>{splitTitle}</p>
                     <p>${data.price}</p>
                     <p><small>{data.description}<span className='ReadMore'> Read more</span></small></p>
                     <hr />
                     <p><b>Color</b></p>
-                    <img src={color} />
+                    <img src={color} alt="colorpallet"/>
                     <p><b>Size</b></p>
-                    <button className='sizeOptions'><small>XS</small></button>
-                    <button className='sizeOptions'><small>S</small></button>
-                    <button className='sizeOptions'><small>M</small></button>
-                    <button className='sizeOptions'><small>L</small></button>
-                    <button className='sizeOptions'><small>XL</small></button>
+                    <button className='sizeOptions' aria-label='SizeXS'><small>XS</small></button>
+                    <button className='sizeOptions' aria-label='SizeS'><small>S</small></button>
+                    <button className='sizeOptions' aria-label='SizeM'><small>M</small></button>
+                    <button className='sizeOptions' aria-label='SizeL'><small>L</small></button>
+                    <button className='sizeOptions' aria-label='SizeXL'><small>XL</small></button>
                     <p><b>Quantity</b></p>
-                   <div> <button className='quantity-minus' onClick={decNum}> - </button>
-                    <input type="text" className='quantity' value={num} onChange={handleChange}/>
-                    <button className='quantity-plus' onClick={incNum}> + </button></div>
+                   <div> <button className='quantity-minus' aria-label='DecQuantity' onClick={decNum}> - </button>
+                    <input type="text" className='quantity' value={num} onChange={handleChange} aria-label="quantity"/>
+                    <button className='quantity-plus' aria-label='IncQuantity' onClick={incNum}> + </button></div>
 
-                    <button className='AddToCartBtn' onClick={() => addProduct(data)}>Add To Cart</button>
-                    <p><span><img src={require('../../../images/heart.svg').default} alt='icon' /> save</span>&nbsp;&nbsp;
+                    <button className='AddToCartBtn' aria-label='AddToCart' onClick={() => addProduct(data)}>Add To Cart</button>
+                    <p className='saveShareBtn'><span><img src={require('../../../images/heart.svg').default} alt='icon' /> save</span>&nbsp;&nbsp;
                      <span><img src={require('../../../images/share.svg').default} alt='icon' /> share</span></p>
 
        </div>
@@ -103,16 +100,16 @@ export default function ProductDetail() {
                     <h4>Details</h4>
                     <div className='aem-Grid aem-Grid--12'>
                     <div className='aem-GridColumn aem-GridColumn--default--6 '>
-                        <p><img src={icon1} />Sweat-wicking</p>
-                        <p><img src={icon3} />Light-weight fabric</p>
+                        <p><img src={icon1} alt="icon1" />Sweat-wicking</p>
+                        <p><img src={icon3} alt="icon3"/>Light-weight fabric</p>
                     </div>
                     <div className='aem-GridColumn aem-GridColumn--default--6 '>
-                        <p><img src={icon2} />Breathable</p>
-                        <p><img src={icon4} />69% nylon, 31% lycra</p>
+                        <p><img src={icon2} alt="icon2" />Breathable</p>
+                        <p><img src={icon4} alt="icon4"/>69% nylon, 31% lycra</p>
                     </div>
                     </div>
-                    <img src="../../../images/detailsicon1.png" alt=""></img>
-                    <p></p>
+                    {/* <img src="../../../images/detailsicon1.png" alt="details1"></img>
+                    <p></p> */}
                 </div>
             </div>
 

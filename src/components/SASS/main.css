@@ -25,39 +25,31 @@
     width: fit-content;
     float: right !important;
   }
-
   .nav-link {
     padding: 0%;
     margin: 0%;
   }
-
   .logo {
     margin-left: 6.5rem;
   }
-
   .linkUnderline {
     display: none;
   }
-
   .nav-items {
     display: contents;
   }
-
   .nav-link {
     display: contents;
   }
-
   .menuicon {
     margin-top: 0.7rem;
     height: 30px;
     width: 20px;
   }
-
   .header {
     height: 3rem;
     text-align: right;
   }
-
   li.nav-link {
     padding: 0%;
   }
@@ -71,11 +63,9 @@
   .menuicon {
     display: none;
   }
-
   .linkUnderline {
     display: none;
   }
-
   .nav-items {
     list-style: none;
   }

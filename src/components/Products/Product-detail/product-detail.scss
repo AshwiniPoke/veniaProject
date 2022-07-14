@@ -2,65 +2,86 @@
 @import '../../SASS/main.css';
 @import '../SASS/var';
 
-.sideImg{
-    height:12vh;
-    width:5vw;
+.sideImg {
+    height: 12vh;
+    width: 5vw;
     margin: 1px;
 }
 
-.mainImg{
-    height:70vh;
-    width:28vw;
-   
-}
-.prodDetails{
-    text-align: left;
-    padding:0 0.5rem 0 0.5rem;
-}
-.ReadMore{
-    text-decoration: underline;
-}
-.sizeOptions{
-    border: 1px solid grey;
-    padding:1px 10px 1px 10px;
-    margin:0 4px 0 4px;
-    border-radius: 4px;
-}
-.QuantityCircle{
-    border: 1px solid grey;
-border-radius: 50%; 
-padding: 0 3px 0 3px;
-}
-.AddToCartBtn{
-background-color: $btn-bgcolor;
-@include button;
+.mainImg {
+    height: 70vh;
+    width: 28vw;
+
 }
 
-.productDetailContainer{
-    margin:0 5vw 0 5vw;
+.prodDetails {
+    text-align: left;
+    padding: 0 0.5rem 0 0.5rem;
 }
-input{
-text-align: center;
+.SingleProdTitle{
+    font-size:36px;
+    margin:0%;
+}
+
+.ReadMore {
+    text-decoration: underline;
+}
+.saveShareBtn{
+    margin-left: 7vw;
+}
+
+.sizeOptions {
+    border: 1px solid grey;
+    padding: 1px 10px 1px 10px;
+    margin: 0 4px 0 4px;
+    border-radius: 4px;
+}
+
+.QuantityCircle {
+    border: 1px solid grey;
+    border-radius: 50%;
+    padding: 0 3px 0 3px;
+}
+
+.AddToCartBtn {
+    background-color: $btn-bgcolor;
+    @include button;
+}
+
+.productDetailContainer {
+    margin: 0 5vw 0 5vw;
+}
+
+input {
+    text-align: center;
 }
 
 
 @media screen and (min-width:320px) and (max-width:767px) {
-    .sideImg{
-        display:none;
+    .sideImg {
+        display: none;
     }
-    .mainImg{
-        width:85vw;
-        height:70vh;
+
+    .mainImg {
+        width: 85vw;
+        height: 50vh;
     }
+    .saveShareBtn{
+        margin-left: 24vw;
+      }
+      .SingleProdTitle {
+        font-size: 32px;
+      }
 }
 
 
 @media screen and (min-width:768px) and (max-width:1023px) {
-    .sideImg{
-        display:none;
+    .sideImg {
+        display: none;
     }
-    .mainImg{
-        width:40vw;
-        height:40vh;
+
+    .mainImg {
+        width: 40vw;
+        height: 40vh;
     }
 }

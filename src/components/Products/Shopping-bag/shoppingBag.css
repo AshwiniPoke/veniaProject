@@ -30,8 +30,6 @@
   padding: 0%;
 }
 
-
-
 .imageprops {
   height: 50%;
   width: 60%;
@@ -126,12 +124,12 @@
   }
 
   .quanBar {
-    margin: 0% 0% 0% 40%;
-  }
+    margin: -17% 0% 0% 40%  }
 
   .discount {
-    margin: 4%;
+    margin: 0% !important;
     padding: 2%;
+    width:90vw !important;
   }
 
   .border {

@@ -48,6 +48,7 @@ hr.heroHr {
 
 .price {
   margin: 0%;
+  font-size: 16px;
   text-align: left;
   margin-left: 5rem;
 }
@@ -61,53 +62,42 @@ hr.heroHr {
   .heroBanner {
     order: 1;
   }
-
   .heroTxt {
     order: 2;
   }
-
   .productImage {
     width: 35vw;
   }
-
   .sortBy {
     display: none;
   }
-
   .resultcount {
     text-align: center !important;
   }
-
   .heroImg {
     display: flex;
     flex-direction: column;
   }
-
   .herobanner {
     width: 100vw;
     height: 12rem;
     margin: -3%;
     padding: 0%;
   }
-
   .heroTxt {
     height: 10rem;
     width: 21rem;
     margin-top: -10%;
   }
-
   .whiteTxt {
     padding-top: 7vh;
   }
-
   .prodTitle {
     margin-left: 1rem;
   }
-
   .price {
     margin-left: 1rem;
   }
-
   .heartIcon {
     margin-left: 1rem;
   }
