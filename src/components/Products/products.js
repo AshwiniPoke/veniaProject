@@ -10,7 +10,7 @@ export default function Product() {
     const [sort, setSort] = useState();
     
     const sortLowToHigh = (filter) => {
-        console.log("onfilter", sort);
+        console.log("onfilter", filter);
         if (filter) {
             const result = data.sort((a, b) => a.price - b.price);
             return setSort(result);
@@ -20,6 +20,7 @@ export default function Product() {
             return setSort(result);
         }
     }
+ 
 
     const getProdData = () => {
         setLoading(true);
